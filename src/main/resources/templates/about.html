@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我</title>
+    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css">
+</head>
+<body>
+<!--    导航-->
+    <nav th:replace="_fragments :: menu(5)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+        <div class="ui container">
+            <div class="ui inverted  stackable menu">
+                <h2 class="ui teal header item">TURL</h2>
+                <a href="#" class="m-item item m-mobil-hide"><i class="home icon"></i>首页</a>
+                <a href="#" class="active m-item item m-mobil-hide"><i class="idea icon"></i>分类</a>
+                <a href="#" class="m-item item m-mobil-hide"><i class="tags icon"></i>标签</a>
+                <a href="#" class="m-item item m-mobil-hide"><i class="clone icon"></i>归档</a>
+                <a href="#" class="m-item item m-mobil-hide"><i class="info icon"></i>关于</a>
+                <div class="m-item right item  m-mobil-hide">
+                    <div class="ui icon inverted transparent input">
+                        <input type="text" placeholder="Search...">
+                        <i class="search link icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="ui menu toggle black icon button m-right-top m-mobil-show">
+            <i class="sidebar icon"></i>
+        </a>
+    </nav>
+    <!-- 中间内容-->
+    <div class="m-container m-padded-tb-big">
+        <div class="ui container">
+            <div class="ui stackable grid">
+                <!--左边-->
+                <div class="ui eleven wide column">
+                    <div class="ui segment">
+                        <img src="https://picsum.photos/id/1002/800/600" alt="" class="ui rounded image">
+                    </div>
+                </div>
+                <!--右边-->
+                <div class="ui five wide column">
+                    <div class="ui top attached segment">
+                        <div class="ui header">关于我</div>
+                    </div>
+                    <div class="ui attached segment">
+                        <p class="m-text" th:utext="#{about.self.introduction}">个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍</p>
+                        <p class="m-text">个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍</p>
+                    </div>
+                    <div class="ui attached segment">
+                        <div class="ui orange basic label m-margin-tb-tiny">思考</div>
+                        <div class="ui orange basic label m-margin-tb-tiny">编程</div>
+                        <div class="ui orange basic label m-margin-tb-tiny">写作</div>
+                        <div class="ui orange basic label m-margin-tb-tiny">运动</div>
+                    </div>
+                    <div class="ui attached segment">
+                        <div class="ui teal basic label m-margin-tb-tiny">Java</div>
+                        <div class="ui teal basic label m-margin-tb-tiny">MySQL</div>
+                        <div class="ui teal basic label m-margin-tb-tiny">Redis</div>
+                        <div class="ui teal basic label m-margin-tb-tiny">...</div>
+                    </div>
+                    <div class="ui bottom attached segment">
+                        <a href="#" th:href="#{about.github}" target="_blank" class="ui circular icon button"><i class="github icon"></i></a>
+                        <a href="#" class="ui wechat circular icon button"><i class="weixin icon"></i></a>
+                        <a href="#" class="ui qq circular icon button" th:data-content="#{about.qq}" data-position="bottom center" ><i class="qq icon"></i></a>
+                    </div>
+                    <div class="ui wechat-qr flowing popup transition hidden">
+                        <img src="../static/images/wechat.jpg" th:src="@{/images/wechat.jpg}" alt="" class="ui rounded image" style="width: 110px">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+
+
+    <!--底部footer-->
+    <footer th:replace="_fragments :: footer">
+    </footer>
+
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+<script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4//semantic.min.js"></script>
+<!--/*/</th:block>/*/-->
+    <script>
+        $('.menu.toggle').click(function (){
+            $('.m-item').toggleClass('m-mobil-hide');
+        });
+        $('.wechat').popup({
+            popup:$('.wechat-qr.popup'),
+            position:'bottom center'
+        });
+        $('.qq').popup();
+    </script>
+</body>
+</html>
